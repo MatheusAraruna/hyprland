@@ -6,7 +6,14 @@
 	"modules-center": [
 		"hyprland/workspaces"
 	],
-	"modules-right": ["bluetooth","pulseaudio","battery","network","clock"],
+	"modules-right": [
+		"bluetooth",
+		"pulseaudio",
+		"battery",
+		"network",
+		"clock",
+		"custom/power"
+	],
 	"battery": {
 		"format": "{capacity}% {icon}",
 		"format-icons": ["", "", "", "", ""]
@@ -25,14 +32,14 @@
 		}
 	},
 	"network": {
-		"interface": "wlan0", // Substitua pelo nome da sua interface se for diferente
+		"interface": "wlan0",
 		"format-wifi": "  ({signalStrength}%)",
 		"format-ethernet": "󰈀  {ipaddr}/{cidr}",
 		"tooltip-format": "󰈀  {ifname} via {gwaddr}",
 		"format-linked": "󰈀  {ifname} (No IP)",
 		"format-disconnected": "󰤮  Desconectado",
 		"format-alt": "󰤨  {ipaddr}/{cidr}",
-		"on-click": "kitty -e nmtui" // Abre a interface do NetworkManager ao clicar
+		"on-click": "kitty -e nmtui"
 	},
 	"pulseaudio": {
 		"format": "{icon}  {volume}%",
@@ -81,5 +88,13 @@
 		"on-click": "swaync-client -t -swb",
 		"on-click-right": "swaync-client -d -swb",
 		"escape": true
+	}
+	,
+	"custom/power": {
+		"format": "",
+		"tooltip": true,
+		"tooltip-format": "Clique-Esq: Desligar | Clique-Dir: Reiniciar",
+		"on-click": "systemctl poweroff",
+		"on-click-right": "systemctl reboot"
 	}
 }
