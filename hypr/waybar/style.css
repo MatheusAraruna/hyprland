@@ -1,0 +1,98 @@
+/* Zerar estilos base e definir fonte */
+* {
+	border: none;
+	border-radius: 0;
+	font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free", Roboto, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	min-height: 0;
+}
+
+/* Barra Principal */
+window#waybar {
+	background-color: transparent; /* Preto/Cinza bem escuro */
+	color: #cdd6f4;             /* Texto cinza-claro */
+	transition-property: background-color;
+	transition-duration: .5s;
+}
+
+/* Afasta o primeiro módulo da esquerda */
+.modules-left {
+	margin-left: 4px;
+}
+
+/* Afasta o último módulo da direita */
+.modules-right {
+	margin-right: 4px;
+}
+
+/* Estilo padronizado para todos os módulos da direita e esquerda */
+#pulseaudio,
+#battery,
+#clock,
+#network,
+#bluetooth,
+#custom-notification,
+#custom-power {
+	background-color: #1e1e2e; /* Cinza-escuro em camadas */
+	color: #cdd6f4;
+	padding: 2px 12px;
+	margin: 4px 3px;
+	border-radius: 6px;
+	border: 1px solid #313244;  /* Borda sutil */
+}
+
+/* Módulo de Workspaces (Centro) */
+#workspaces {
+	background-color: #1e1e2e;
+	margin: 4px 0;
+	padding: 0 4px;
+	border-radius: 6px;
+	border: none;
+}
+
+#workspaces button {
+	padding: 0 5px;
+	color: #585b70;              /* Ícone inativo em cinza opaco */
+	background-color: transparent;
+	transition: none;           /* Desativa transições visuais no hover */
+}
+
+/* Remove qualquer efeito/alteração ao passar o mouse */
+#workspaces button:hover {
+	background: transparent;
+	box-shadow: inherit;
+	text-shadow: inherit;
+}
+
+/* Garante que o hover em botões inativos não mude a cor do texto */
+#workspaces button:not(.active):hover {
+	color: #585b70;
+}
+
+/* Workspace Ativo */
+#workspaces button.active {
+	color: #cdd6f4;              /* Ícone ativo destacado */
+}
+
+#workspaces button.urgent {
+	color: #f38ba8;              /* Destaque sutil para avisos/urgência */
+}
+
+/* Ajustes Específicos de Módulos */
+#clock {
+	background-color: #181825; /* Destaque sutil no relógio */
+}
+
+#battery.warning {
+	color: #f9e2af;
+}
+
+#battery.critical:not(.charging) {
+	background-color: #f38ba8;
+	color: #11111b;
+}
+
+#pulseaudio.muted {
+	color: #6c7086;
+}

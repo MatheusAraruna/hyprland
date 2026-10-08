@@ -1,0 +1,100 @@
+{
+	"layer": "top",
+	"modules-left": [
+		"custom/notification"
+	],
+	"modules-center": [
+		"hyprland/workspaces"
+	],
+	"modules-right": [
+		"bluetooth",
+		"pulseaudio",
+		"battery",
+		"network",
+		"clock",
+		"custom/power"
+	],
+	"battery": {
+		"format": "{capacity}% {icon}",
+		"format-icons": ["", "", "", "", ""]
+	},
+	"clock": {
+		"format": "{:%H:%M}",
+		"format-alt": "{:%A, %d de %B de %Y - %H:%M}",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"locale": "pt_BR.UTF-8"
+	},
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"format-icons": {
+			"active": "",
+			"default": ""
+		}
+	},
+	"network": {
+		"interface": "wlan0",
+		"format-wifi": "  ({signalStrength}%)",
+		"format-ethernet": "󰈀  {ipaddr}/{cidr}",
+		"tooltip-format": "󰈀  {ifname} via {gwaddr}",
+		"format-linked": "󰈀  {ifname} (No IP)",
+		"format-disconnected": "󰤮  Desconectado",
+		"format-alt": "󰤨  {ipaddr}/{cidr}",
+		"on-click": "kitty -e nmtui"
+	},
+	"pulseaudio": {
+		"format": "{icon}  {volume}%",
+		"format-bluetooth": "{icon}  {volume}% ",
+		"format-muted": " Muted",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", ""]
+		},
+		"scroll-step": 1,
+		"on-click": "pavucontrol",
+		"ignored-sinks": ["Easy Effects Sink"]
+	},
+	"bluetooth": {
+		"format": " {status}",
+		"format-disabled": "󰂲 Off",
+		"format-connected": " {device_alias}",
+		"format-connected-battery": " {device_alias} {device_battery_percentage}%",
+		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} conectado(s)",
+		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} conectado(s):\n{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+		"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+		"on-click": "blueman-manager"
+	},
+	"custom/notification": {
+		"tooltip": false,
+		"format": "{icon}",
+		"format-icons": {
+			"notification": "󱅫",
+			"none": "󰂜",
+			"dnd-notification": "󰂛",
+			"dnd-none": "󰪑",
+			"inhibited-notification": "󱅫",
+			"inhibited-none": "󰂜",
+			"dnd-inhibited-notification": "󰂛",
+			"dnd-inhibited-none": "󰪑"
+		},
+		"return-type": "json",
+		"exec-if": "which swaync-client",
+		"exec": "swaync-client -swb",
+		"on-click": "swaync-client -t -swb",
+		"on-click-right": "swaync-client -d -swb",
+		"escape": true
+	}
+	,
+	"custom/power": {
+		"format": "",
+		"tooltip": true,
+		"tooltip-format": "Clique-Esq: Desligar | Clique-Dir: Reiniciar",
+		"on-click": "systemctl poweroff",
+		"on-click-right": "systemctl reboot"
+	}
+}
