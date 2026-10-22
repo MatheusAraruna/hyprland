@@ -1,7 +1,8 @@
 {
 	"layer": "top",
 	"modules-left": [
-		"custom/notification"
+		"custom/notification",
+		"mpris"
 	],
 	"modules-center": [
 		"hyprland/workspaces"
@@ -107,5 +108,21 @@
 			"reboot":   "systemctl reboot",
 			"shutdown": "systemctl poweroff"
 		}
+	},
+	"mpris": {
+		"format": "{player_icon} {dynamic}",
+		"format-paused": "{status_icon} <i>{dynamic}</i>",
+		"player-icons": {
+			"default": "▶",
+			"spotify": "",
+			"firefox": "",
+			"mpv": "🎵"
+		},
+		"status-icons": {
+			"paused": "⏸"
+		},
+		"dynamic-order": ["title", "artist"],
+		"dynamic-len": 40,
+		"max-length": 50
 	}
 }

@@ -97,6 +97,14 @@ window#waybar {
 	color: #6c7086;
 }
 
+#mpris {
+    padding: 0 10px;
+    color: #a6e3a1;
+}
+
+#mpris.paused {
+    color: #6c7086;
+}
 
 /* POWER MENU */
 menu {
