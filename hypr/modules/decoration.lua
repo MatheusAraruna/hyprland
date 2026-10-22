@@ -29,8 +29,8 @@ hl.config({
         rounding_power = 2,
 
         -- Change transparency of focused and unfocused windows
-        active_opacity   = 1.0,
-        inactive_opacity = 1.0,
+        active_opacity   = 0.8,
+        inactive_opacity = 0.5,
 
         shadow = {
             enabled      = true,
@@ -79,3 +79,10 @@ hl.animation({ leaf = "workspaces",    enabled = true,  speed = 1.94, bezier = "
 hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 1.21, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "quick" })
+
+
+-- RULES --
+hl.window_rule({
+	match = { class = "^(helium-browser|helium|firefox|google-chrome|chromium|brave-browser|mpv)" },
+	opacity = "1.0 override 1.0 override"
+})

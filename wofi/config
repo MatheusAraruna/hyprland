@@ -1,0 +1,12 @@
+show=drun
+prompt=Buscar...
+width=500
+height=400
+location=center
+allow_images=true
+image_size=24
+insensitive=true
+matching=fuzzy
+hide_scroll=true
+no_actions=true
+term=kitty
