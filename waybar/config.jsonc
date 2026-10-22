@@ -16,7 +16,12 @@
 	],
 	"battery": {
 		"format": "{capacity}% {icon}",
-		"format-icons": ["", "", "", "", ""]
+		"format-charging": "{capacity}% {icon}",
+		"format-plugged": "{capacity}% 󰚥",
+		"format-icons": {
+			"charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+			"default":  ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+		}
 	},
 	"clock": {
 		"format": "{:%H:%M}",
@@ -93,8 +98,14 @@
 	"custom/power": {
 		"format": "",
 		"tooltip": true,
-		"tooltip-format": "Clique-Esq: Desligar | Clique-Dir: Reiniciar",
-		"on-click": "systemctl poweroff",
-		"on-click-right": "systemctl reboot"
+		"tooltip-format": "Opções de energia",
+		"menu": "on-click",
+		"menu-file": "~/.config/waybar/modules/power_menu.xml",
+		"menu-actions": {
+			"lock":     "hyprlock",
+			"switch":   "dm-tool switch-to-greeter",
+			"reboot":   "systemctl reboot",
+			"shutdown": "systemctl poweroff"
+		}
 	}
 }

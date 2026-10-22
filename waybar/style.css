@@ -44,7 +44,7 @@ window#waybar {
 
 /* Módulo de Workspaces (Centro) */
 #workspaces {
-	background-color: #1e1e2e;
+	background-color: transparent;
 	margin: 4px 0;
 	padding: 0 4px;
 	border-radius: 6px;
@@ -95,4 +95,28 @@ window#waybar {
 
 #pulseaudio.muted {
 	color: #6c7086;
+}
+
+
+/* POWER MENU */
+menu {
+	background-color: #1e1e2e;
+	border-radius: 8px;
+	padding: 6px;
+	border: none;
+}
+
+menuitem {
+	color: #cdd6f4;
+	padding: 6px 12px;
+	border-radius: 6px;
+}
+
+menuitem:hover {
+	background-color: #313244;
+}
+
+menu separator {
+	background-color: #45475a;
+	margin: 4px 0;
 }
